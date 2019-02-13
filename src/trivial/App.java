@@ -1,5 +1,7 @@
 package trivial;
 
+import trivial.ui.TrivialFrame;
+
 import java.util.List;
 import java.util.Map;
 
@@ -22,7 +24,8 @@ public class App {
         }
         String result = question.answer(new Answer("Domingo"));
         System.out.println(result);
-
+        TrivialFrame trivialFrame = new TrivialFrame();
+        trivialFrame.showCardPanel();
 
     }
 }
