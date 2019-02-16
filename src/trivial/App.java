@@ -1,5 +1,6 @@
 package trivial;
 
+import trivial.ui.AnswersPanel;
 import trivial.ui.TrivialFrame;
 
 import java.util.List;
@@ -26,6 +27,7 @@ public class App {
         System.out.println(result);
         TrivialFrame trivialFrame = new TrivialFrame();
         trivialFrame.showCardPanel();
+        AnswersPanel.componentes();
 
     }
 }

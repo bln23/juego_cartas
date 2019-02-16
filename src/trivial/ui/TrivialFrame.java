@@ -3,6 +3,7 @@ package trivial.ui;
 import javax.swing.*;
 import java.awt.*;
 
+
 public class TrivialFrame extends JFrame {
 
     public TrivialFrame() {
@@ -11,12 +12,14 @@ public class TrivialFrame extends JFrame {
         setResizable(true); //redimensionar
         setTitle("Trivial"); //nombre ventana
         setVisible(true);
-        Toolkit myWindows = Toolkit.getDefaultToolkit();
-        Dimension sizeWindow = myWindows.getScreenSize();
+        //medidas ventana y centrar
+        Toolkit myWindow = Toolkit.getDefaultToolkit();
+        Dimension sizeWindow = myWindow.getScreenSize();
         int heightWindow = sizeWindow.height;
         int witdthWindow = sizeWindow.width;
         setSize(witdthWindow/2, heightWindow/2);
         setLocation(witdthWindow/4, heightWindow/4);
+
     }
 
     public void showCardPanel() {
