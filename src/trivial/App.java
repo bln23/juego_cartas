@@ -27,7 +27,6 @@ public class App {
         System.out.println(result);
         TrivialFrame trivialFrame = new TrivialFrame();
         trivialFrame.showCardPanel();
-        AnswersPanel.componentes();
 
     }
 }
