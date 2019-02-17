@@ -15,24 +15,17 @@ public class AnswersPanel extends JPanel {
     public AnswersPanel() {
         btnA = new JButton();
         this.add(btnA);
-        ColorFondo Amarillo = new ColorFondo(Color.yellow);
         btnB = new JButton();
         this.add(btnB);
-        ColorFondo Azul = new ColorFondo(Color.blue);;
         btnC = new JButton();
         this.add(btnC);
-        ColorFondo Rojo = new ColorFondo(Color.red);
         btnD = new JButton();
         this.add(btnD);
-        ColorFondo Rosa = new ColorFondo(Color.pink);
         this.estilosButton();
-
-        btnA.addActionListener(Amarillo);
-        btnB.addActionListener(Azul);
-        btnC.addActionListener(Rojo);
-        btnD.addActionListener(Rosa);
-
-
+        btnA.addActionListener(e -> btnA.setBackground(Color.yellow));
+        btnB.addActionListener(e -> btnB.setBackground(Color.blue));
+        btnC.addActionListener(e -> btnC.setBackground(Color.red));
+        btnD.addActionListener(e -> btnD.setBackground(Color.pink));
     }
 
 
@@ -46,27 +39,15 @@ public class AnswersPanel extends JPanel {
         btnC.setBounds(70, 100, 100, 30);
         btnD.setText("Jueves");
         btnD.setBounds(80, 100, 100, 30);
+        btnA.setBorderPainted(false);
+        btnB.setBorderPainted(false);
+        btnC.setBorderPainted(false);
+        btnD.setBorderPainted(false);
+        btnA.setOpaque(true);
+        btnB.setOpaque(true);
+        btnC.setOpaque(true);
+        btnD.setOpaque(true);
     }
-
-    private class ColorFondo implements ActionListener{
-
-        private Color colorDeFondo;
-
-        public ColorFondo(Color c){
-
-            this.colorDeFondo = c;
-
-        }
-
-        public void actionPerformed(ActionEvent e){
-
-            setBackground(colorDeFondo);
-
-        }
-
-
-    }
-
 }
 
 
