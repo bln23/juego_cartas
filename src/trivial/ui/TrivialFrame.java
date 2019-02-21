@@ -1,7 +1,10 @@
 package trivial.ui;
 
+import trivial.Question;
+
 import javax.swing.*;
 import java.awt.*;
+import java.util.List;
 
 
 
@@ -16,16 +19,20 @@ public class TrivialFrame extends JFrame {
         //medidas ventana y centrar
         Toolkit myWindow = Toolkit.getDefaultToolkit();
         Dimension sizeWindow = myWindow.getScreenSize();
+        // alto y ancho ventana
         int heightWindow = sizeWindow.height;
         int witdthWindow = sizeWindow.width;
         setSize(witdthWindow/2, heightWindow/2);
+        //donde se va a ubicar la ventana en la pantalla del ordenador
         setLocation(witdthWindow/4, heightWindow/4);
 
     }
 
-    public void showCardPanel() {
+    // metodo empezar, pasar lista de preguntas
+    public void startGame(List<Question> questions) {
         getContentPane().removeAll();
-        getContentPane().add(new CardPanel());
+        CardPanel cardPanel = new CardPanel(questions);
+        getContentPane().add(cardPanel);
         validate();
     }
 }

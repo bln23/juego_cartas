@@ -28,10 +28,9 @@ public class Question {
         return map;
     }
 
-    public String answer(Answer answer) {
-        if (answer.equals(correctAnswer)) {
-            return "Has acertado";
-        }
-        return "Has fallado";
+
+    //respuesta correcta
+    public boolean answer(Answer answer) {
+        return answer.equals(correctAnswer);
     }
 }

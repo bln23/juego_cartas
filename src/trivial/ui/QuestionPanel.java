@@ -5,11 +5,15 @@ import javax.swing.*;
 
 public class QuestionPanel extends JPanel {
 
+    private final JLabel jLabel;
+
     public QuestionPanel() {
-        JLabel jLabel = new JLabel("¿Qué dia es hoy?");
+        jLabel = new JLabel();
         this.add(jLabel);
     }
 
-
-
+    //respuesta
+    public void ask(String statement) {
+        jLabel.setText(statement);
+    }
 }
