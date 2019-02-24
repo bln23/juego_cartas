@@ -1,6 +1,5 @@
 package trivial;
 
-import java.util.Objects;
 
 public class Answer {
     private final String answer;

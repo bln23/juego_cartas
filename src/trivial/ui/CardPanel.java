@@ -1,44 +1,50 @@
 package trivial.ui;
 
-import trivial.Answer;
 import trivial.Question;
 
 import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.List;
 
 public class CardPanel extends JPanel {
 
-    //Lista de preguntas
-    private final List<Question> questions;
-    //panel en el que van las preguntas
-    private final QuestionPanel questionPanel;
-    //panel en el que van las respuestas
-    private final AnswersPanel answers;
-    // posicion de la pregunta actual
+    private final QuestionPanel questionPanel = new QuestionPanel();
+    private final AnswersPanel answers = new AnswersPanel();
     private int currentQuestionIndex = 0;
 
-    //constructor al que le pasamos la lista de preguntas
     public CardPanel(List<Question> questions) {
-        this.questions = questions;
+        colocarPanelesHijos();
+        answers.addNextQuestionListener(new AnswersPanel.NextQuestionListener() {
+            @Override
+            public void onNext() {
+                mostrarSiguientePregunta(questions);
+            }
+        });
+        mostrarPrimeraPregunta(questions);
+    }
 
-        //creamos un panel de pregunta y respuestas
-        questionPanel = new QuestionPanel();
-        answers = new AnswersPanel();
+    private void colocarPanelesHijos() {
         this.add(questionPanel);
         this.add(answers);
+        setLayout(new GridLayout(2, 1));
+    }
 
-        //siguiente pregunta
-        answers.addNextQuestionListener(() -> {
-            currentQuestionIndex = currentQuestionIndex + 1;
+    private void mostrarPrimeraPregunta(List<Question> questions) {
+        showQuestion(questions.get(0));
+    }
+
+    private void mostrarSiguientePregunta(List<Question> questions) {
+        currentQuestionIndex = currentQuestionIndex + 1;
+        boolean hayMasPreguntas = currentQuestionIndex < questions.size();
+        if (hayMasPreguntas) {
             showQuestion(questions.get(currentQuestionIndex));
-        });
-        showQuestion(questions.get(currentQuestionIndex));
+        }
     }
 
     private void showQuestion(Question question) {
         questionPanel.ask(question.getStatement());
         answers.showAnswers(question);
     }
-
-
 }

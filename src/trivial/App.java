@@ -1,16 +1,15 @@
 package trivial;
 
 import trivial.ui.TrivialFrame;
+import java.util.Arrays;
 
-import java.util.List;
-import java.util.Map;
 
 public class App {
 
     public static void main(String[] args) {
-        Question question = new Question(
+        Question question1 = new Question(
                 "¿Qué día es hoy?",
-                List.of(
+                Arrays.asList(
                         new Answer("Lunes"),
                         new Answer("Martes"),
                         new Answer("Miercoles"),
@@ -18,8 +17,18 @@ public class App {
                 ),
                 new Answer("Domingo")
         );
+        Question question2 = new Question(
+                "¿Cómo se llama la gata de Belén?",
+                Arrays.asList(
+                        new Answer("Paketo"),
+                        new Answer("Hannah"),
+                        new Answer("Juana"),
+                        new Answer("Triskis")
+                ),
+                new Answer("Hannah")
+        );
         TrivialFrame trivialFrame = new TrivialFrame();
-        trivialFrame.startGame(List.of(question));
+        trivialFrame.startGame(Arrays.asList(question1, question2));
 
     }
 }

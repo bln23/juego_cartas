@@ -8,6 +8,7 @@ import java.util.List;
 
 
 
+@SuppressWarnings("serial")
 public class TrivialFrame extends JFrame {
 
     public TrivialFrame() {
