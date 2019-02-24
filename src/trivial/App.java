@@ -38,7 +38,7 @@ public class App {
                 new Respuesta("La Antártida")
         );
         Pregunta question4 = new Pregunta(
-                "¿QUé ciudad de las siguientes no es europea?",
+                "¿Qué ciudad de las siguientes no es europea?",
                 Arrays.asList(
                         new Respuesta("Boston"),
                         new Respuesta("Milan"),
