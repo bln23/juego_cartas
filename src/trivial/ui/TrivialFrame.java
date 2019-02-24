@@ -1,6 +1,6 @@
 package trivial.ui;
 
-import trivial.Question;
+import trivial.Pregunta;
 
 import javax.swing.*;
 import java.awt.*;
@@ -30,7 +30,7 @@ public class TrivialFrame extends JFrame {
     }
 
     // metodo empezar, pasar lista de preguntas
-    public void startGame(List<Question> questions) {
+    public void startGame(List<Pregunta> questions) {
         getContentPane().removeAll();
         CardPanel cardPanel = new CardPanel(questions);
         getContentPane().add(cardPanel);

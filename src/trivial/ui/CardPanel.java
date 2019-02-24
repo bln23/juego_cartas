@@ -1,22 +1,20 @@
 package trivial.ui;
 
-import trivial.Question;
+import trivial.Pregunta;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.List;
 
 public class CardPanel extends JPanel {
 
-    private final QuestionPanel questionPanel = new QuestionPanel();
-    private final AnswersPanel answers = new AnswersPanel();
+    private final PanelPreguntas questionPanel = new PanelPreguntas();
+    private final PanelRespuestas answers = new PanelRespuestas();
     private int currentQuestionIndex = 0;
 
-    public CardPanel(List<Question> questions) {
+    public CardPanel(List<Pregunta> questions) {
         colocarPanelesHijos();
-        answers.addNextQuestionListener(new AnswersPanel.NextQuestionListener() {
+        answers.ejecutaEstoCuandoPulsenSiguiente(new PanelRespuestas.NextQuestionListener() {
             @Override
             public void onNext() {
                 mostrarSiguientePregunta(questions);
@@ -31,11 +29,11 @@ public class CardPanel extends JPanel {
         setLayout(new GridLayout(2, 1));
     }
 
-    private void mostrarPrimeraPregunta(List<Question> questions) {
+    private void mostrarPrimeraPregunta(List<Pregunta> questions) {
         showQuestion(questions.get(0));
     }
 
-    private void mostrarSiguientePregunta(List<Question> questions) {
+    private void mostrarSiguientePregunta(List<Pregunta> questions) {
         currentQuestionIndex = currentQuestionIndex + 1;
         boolean hayMasPreguntas = currentQuestionIndex < questions.size();
         if (hayMasPreguntas) {
@@ -43,8 +41,8 @@ public class CardPanel extends JPanel {
         }
     }
 
-    private void showQuestion(Question question) {
-        questionPanel.ask(question.getStatement());
-        answers.showAnswers(question);
+    private void showQuestion(Pregunta question) {
+        questionPanel.pregunta(question.getStatement());
+        answers.mostrarRespuestas(question);
     }
 }

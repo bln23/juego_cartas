@@ -4,11 +4,11 @@ import javax.swing.*;
 import java.awt.*;
 
 
-public class QuestionPanel extends JPanel {
+public class PanelPreguntas extends JPanel {
 
     private final JLabel jLabel;
 
-    public QuestionPanel() {
+    public PanelPreguntas() {
         setLayout(new GridLayout(1, 1));
         jLabel = new JLabel();
         jLabel.setHorizontalAlignment(SwingConstants.CENTER);
@@ -16,7 +16,7 @@ public class QuestionPanel extends JPanel {
     }
 
     //pregunta
-    public void ask(String statement) {
+    public void pregunta(String statement) {
         jLabel.setText(statement);
     }
 }

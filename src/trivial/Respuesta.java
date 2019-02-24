@@ -1,10 +1,10 @@
 package trivial;
 
 
-public class Answer {
+public class Respuesta {
     private final String answer;
 
-    public Answer(String answer) {
+    public Respuesta(String answer) {
         this.answer = answer;
     }
 
@@ -14,7 +14,7 @@ public class Answer {
 
     @Override
     public boolean equals(Object o) {
-        Answer answer = (Answer) o;
+        Respuesta answer = (Respuesta) o;
         return this.answer.equals(answer.answer);
     }
 }
